@@ -45,7 +45,18 @@ $ gradlew -Pspec=<android|java> build
 $ sudo apt-get install gcc-multilib
 $ sudo apt-get install g++-multilib
 ```
-
+### RASPBIAN 
+On version 4.9.41-v7+ :
+```
+$ cd sqlite-custom/
+$ sudo ./gradlew -Pspec=cross
+```
+The build result is in :
+sqlite-custom/build/libs
+You can then take the .jar and install it as a maven module in your local repository :
+```
+mvn install:install-file -Dfile=/<PROJECT_PATH>/couchbase-lite-java-native/sqlite-custom/build/libs/couchbase-lite-java-sqlite-custom.jar -DgroupId=com.couchbase.lite -DartifactId=couchbase-lite-java-sqlite-custom -Dversion=1.0 -Dpackaging=jar
+```
 ### Windows
 * Visual Studio 2015 is required. 
 
